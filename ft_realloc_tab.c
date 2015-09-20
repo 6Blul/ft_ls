@@ -6,7 +6,7 @@
 /*   By: spochez <spochez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/20 15:31:01 by spochez           #+#    #+#             */
-/*   Updated: 2015/09/20 15:39:17 by spochez          ###   ########.fr       */
+/*   Updated: 2015/09/20 16:40:47 by spochez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ char	**ft_realloc_tab(char **tab, int len)
 		res[i] = ft_strdup(tab[i]);
 		i++;
 	}
-	return (tab)
+	return (tab);
 }

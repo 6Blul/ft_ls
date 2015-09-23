@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spochez <spochez@student.42.fr>            +#+  +:+       +#+        */
+/*   By: spochez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/20 15:40:23 by spochez           #+#    #+#             */
-/*   Updated: 2015/09/23 17:28:19 by spochez          ###   ########.fr       */
+/*   Created: 2014/11/04 13:40:49 by spochez           #+#    #+#             */
+/*   Updated: 2015/09/23 17:00:14 by spochez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <string.h>
+#include "ft_ls.h"
 
+char	*ft_strdup(const char *s1)
+{
+	char	*s2;
+	size_t	i;
 
-#endif
+	i = 0;
+	s2 = NULL;
+	s2 = malloc(sizeof(char) * ft_strlen(s1) + 1);
+	while (s1[i])
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = 0;
+	return (s2);
+}

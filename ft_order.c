@@ -1,27 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc_tab.c                                   :+:      :+:    :+:   */
+/*   ft_order.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spochez <spochez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/20 15:31:01 by spochez           #+#    #+#             */
-/*   Updated: 2015/09/23 17:00:56 by spochez          ###   ########.fr       */
+/*   Created: 2015/09/23 16:52:44 by spochez           #+#    #+#             */
+/*   Updated: 2015/09/23 17:26:14 by spochez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	**ft_realloc_tab(char **tab, int len)
+int		ft_strcmp(char *s1, char *s2)
 {
-	char	**res;
 	int		i;
 
-	res = (char **)malloc(sizeof(char *) * len + 1);
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] == s2[i])
+			i++;
+		else
+			return (s1[i] - s2[i]);
+	}
+	return (0);
+}
+
+char	**ft_order(char **tab, int len)
+{
+	int		i;
+	int		j;
+	char	*tp;
+
 	i = 0;
 	while (i <= len)
 	{
-		res[i] = ft_strdup(tab[i]);
+		j = i + 1;
+		while (j < len)
+			{
+				if (ft_strcmp(tab[j], tab[i]) < 0)
+				{
+					tp = tab[j];
+					tab[j] = tab[i];
+					tab[i] = tp;		
+				}
+				j++;
+			}
 		i++;
 	}
 	return (tab);

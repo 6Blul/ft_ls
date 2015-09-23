@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_treat_options.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spochez <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: spochez <spochez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 13:40:49 by spochez           #+#    #+#             */
-/*   Updated: 2015/09/23 17:29:49 by spochez          ###   ########.fr       */
+/*   Created: 2015/09/23 17:58:55 by spochez           #+#    #+#             */
+/*   Updated: 2015/09/23 18:12:02 by spochez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*ft_strdup(char *s1)
-{
-	char	*s2;
-	size_t	i;
+// Tab : 0 = -l / 1 = -a / 2 = -r / 3 = -t / 4 = -R   
 
-	i = 0;
-	s2 = NULL;
-	s2 = malloc(sizeof(char) * ft_strlen(s1) + 1);
-	while (s1[i])
-	{
-		s2[i] = s1[i];
-		i++;
-	}
-	s2[i] = 0;
-	return (s2);
+int		*ft_ls_options(char **tab, int len)
+{
+	int		*opt;
+
+	opt = (int *)malloc(sizeof(int) * 5);
+	ft_bzero(opt, 4);
 }

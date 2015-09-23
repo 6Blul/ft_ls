@@ -6,7 +6,7 @@
 /*   By: spochez <spochez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/23 16:52:44 by spochez           #+#    #+#             */
-/*   Updated: 2015/09/23 17:26:14 by spochez          ###   ########.fr       */
+/*   Updated: 2015/09/23 18:35:49 by spochez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ char	**ft_order(char **tab, int len)
 	{
 		j = i + 1;
 		while (j < len)
+		{
+			if (ft_strcmp(tab[j], tab[i]) < 0)
 			{
-				if (ft_strcmp(tab[j], tab[i]) < 0)
-				{
-					tp = tab[j];
-					tab[j] = tab[i];
-					tab[i] = tp;		
-				}
-				j++;
+				tp = tab[j];
+				tab[j] = tab[i];
+				tab[i] = tp;
 			}
+			j++;
+		}
 		i++;
 	}
 	return (tab);

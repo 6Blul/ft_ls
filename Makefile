@@ -19,6 +19,8 @@ SRC =	ft_ls.c
 		ft_bzero.c
 		ft_memset.c
 		ft_treat_options.c
+		ft_putchar.c
+		ft_putstr.c
 
 OBJ = $(SRC:.c=.o) 
 

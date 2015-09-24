@@ -12,14 +12,28 @@
 
 #ifndef FT_LS_H
 # define FT_LS_H
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <pwd.h>
+# include <dirent.h>
+# include <unistd.h>
+# include <grp.h>
+# include <time.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <unistd.h>
 # include <string.h>
 
 char	*ft_strdup(char *s1);
 char	**ft_realloc_tab(char **tab, int len);
 int		ft_strcmp(char *s1, char *s2);
 char	**ft_order(char **tab, int len);
+void	ft_putchar(char c);
+void	ft_putstr(char *s);
+void	ft_ls_simple();
+void	ft_print_simple(char **tab, int len);
+int		*ft_ls_options(char **tab, int len);
+int		*ft_treat_av(char *line, int *tab);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memset(void *b, int c, size_t len);
 
 #endif

@@ -1,43 +1,16 @@
 #include "ft_ls.h"
 
-void	ft_print_simple(char **tab, int len)
-{
-	int		i;
-	int		j;
-	char	*temp;
-
-	j = 0;
-	while (j < len)
-	{
-		i = len + 1;
-		while (i < len)
-		{
-			if (strcmp(tab[i], tab[j]) < 0)
-			{
-				temp = ft_strdup(tab[i]);
-				tab[i] = ft_strdup(tab[j]);
-				tab[j] = ft_strdup(temp);
-			}
-			i++;
-		}
-		j++;
-	}
-	i = 0;
-	while (i < len)
-	{
-		ft_putstr(tab[i]);
-		i++;
-	}
-}
-
 void	ft_ls_simple()
 {
 	DIR				*current;
 	struct dirent	*direc;
 	char			**pd;
 	int				len;
+	int				i;
 
 	len = 0;
+	i = 0;
+	pd = (char **)malloc(sizeof(char *));
 	current = opendir(".");
 	while (direc != NULL)
 	{
@@ -49,7 +22,13 @@ void	ft_ls_simple()
 			pd[len] = ft_strdup(direc->d_name);
 			len++;
 		}
-		ft_print_simple(pd, len);
+	}
+	pd = ft_order(pd, len);
+	while (i < len)
+	{
+		ft_putstr(pd[i]);
+		ft_putchar('\n');
+		i++;
 	}
 	closedir(current);
 }

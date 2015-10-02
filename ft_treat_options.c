@@ -12,33 +12,32 @@
 
 #include "ft_ls.h"
 
-// Tab : 0 = -l / 1 = -a / 2 = -r / 3 = -t / 4 = -R / 5 = peut etre un dossier
+// Tab : 0 = -l / 1 = -a / 2 = -r / 3 = -t / 4 = -R 
 
-int		*ft_treat_av(char *line, int *tab)
+int		ft_valid(char c)
+{
+	return (c == 'l' || c == 'a' || c == 'r' || c == 'R' || c == 't');
+}
+
+int		*ft_fill_tab(char *line, int *opt)
 {
 	int		i;
 
-	i = 0;
-	if (line[i] == '-' && line[i + 1])
+	i = 1;
+	while (ft_valid(line[i]))
 	{
-		while (line[i])
-		{
-			if (line[i] == 'l')
-				tab[0] = 1;
-			else if (line[i] == 'a')
-				tab[1] = 1;
-			else if (line[i] == 'r')
-				tab[2] = 1;
-			else if (line[i] == 't')
-				tab[3] = 1;
-			else if (line[i] == 'R')
-				tab[4] = 1;
-			i++;
-		}
+		if (line[i] == 'l')
+			tab[0] = 1;
+		if (line[i] == 'a')
+			tab[1] = 1;
+		if (line[i] == 'r')
+			tab[2] = 1;
+		if (line[i] == 'R')
+			tab[3] = 1;
+		if (line[i] == 't')
+			tab[4] = 1;
+		i++;
 	}
-	else
-		tab[5] = 1;
-	return (tab);
 }
 
 int		*ft_ls_options(char **tab, int len)
@@ -49,7 +48,7 @@ int		*ft_ls_options(char **tab, int len)
 	opt = (int *)malloc(sizeof(int) * 5);
 	ft_bzero(opt, 4);
 	i = 1;
-	while (i <= len)
+	while (i <= len && av[i][0] == '-')
 	{
 		opt = ft_fill_tab(tab[i], opt);
 		i++;

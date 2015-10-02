@@ -19,10 +19,10 @@ char	**ft_realloc_tab(char **tab, int len)
 
 	res = (char **)malloc(sizeof(char *) * len + 1);
 	i = 0;
-	while (i <= len)
+	while (i < len)
 	{
 		res[i] = ft_strdup(tab[i]);
 		i++;
 	}
-	return (tab);
+	return (res);
 }

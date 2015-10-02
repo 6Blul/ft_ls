@@ -35,5 +35,6 @@ int		*ft_ls_options(char **tab, int len);
 int		*ft_treat_av(char *line, int *tab);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
+int		ft_strlen(char *s);
 
 #endif

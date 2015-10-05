@@ -31,10 +31,13 @@ void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_ls_simple();
 void	ft_print_simple(char **tab, int len);
-int		*ft_ls_options(char **tab, int len);
-int		*ft_treat_av(char *line, int *tab);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
 int		ft_strlen(char *s);
+int		ft_lowups(char *s1, char *s2);
+char	**ft_order(char **tab, int len);
+int		ft_isupper(char c);
+int		ft_islower(char c);
+int		ft_isalpha(char c);
 
 #endif

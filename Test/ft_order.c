@@ -40,8 +40,8 @@ char	**ft_order(char **tab, int len)
 		j = i + 1;
 		while (j < len)
 		{
+			//printf("\nRES = %s - %s - %s - %s\n\n", tab[0], tab[1], tab[2], tab[3]);
 			cmp = ft_strcmp(tab[i], tab[j]);
-			printf("lowups = %i\n", ft_lowups(tab[i], tab[j]));
 			if (cmp > 0 && ft_lowups(tab[i], tab[j]))
 			{
 				tp = tab[j];

@@ -10,22 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "ft_ls.h"
-
-int		ft_strcmp(char *s1, char *s2)
-{
-	int		i;
-
-	i = 0;
-	while (s1[i] || s2[i])
-	{
-		if (s1[i] == s2[i])
-			i++;
-		else
-			return (s1[i] - s2[i]);
-	}
-	return (0);
-}
 
 char	**ft_order(char **tab, int len)
 {
@@ -39,7 +25,7 @@ char	**ft_order(char **tab, int len)
 		j = i + 1;
 		while (j < len)
 		{
-			if (ft_strcmp(tab[j], tab[i]) < 0)
+			if (ft_lowups(tab[i], tab[j]) > 0)
 			{
 				tp = tab[j];
 				tab[j] = tab[i];

@@ -24,5 +24,6 @@ char	**ft_realloc_tab(char **tab, int len)
 		res[i] = ft_strdup(tab[i]);
 		i++;
 	}
+	free(tab);
 	return (res);
 }

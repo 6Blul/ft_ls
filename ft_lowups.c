@@ -36,7 +36,7 @@ int		ft_diff_cases(char *s1, char *s2, int i)
 	{
 		if (ft_islower(s1[i]))
 		{
-			if (s1[i] - 32 < s2[i])
+			if (s1[i] - 32 > s2[i])
 				return (1);
 		}
 		if (ft_islower(s2[i]))

@@ -11,15 +11,17 @@
 # **************************************************************************** #
 NAME = libftls.a
 
-SRC =	ft_ls.c
-		ft_order.c
-		ft_realloc_tab.c
-		ft_strdup.c
-		ft_bzero.c
+SRC =	ft_bzero.c
+		ft_isalpha.c
+		ft_lowups.c
+		ft_ls.c
 		ft_memset.c
-		ft_treat_options.c
+		ft_order.c
 		ft_putchar.c
 		ft_putstr.c
+		ft_realloc_tab.c
+		ft_strcmp.c
+		ft_strdup.c
 
 OBJ = $(SRC:.c=.o) 
 

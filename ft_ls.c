@@ -30,6 +30,7 @@ void	ft_ls_simple()
 		ft_putchar('\n');
 		i++;
 	}
+	free(pd);
 	closedir(current);
 }
 

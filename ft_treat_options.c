@@ -12,7 +12,7 @@
 
 #include "ft_ls.h"
 
-// Tab : 0 = -l / 1 = -a / 2 = -r / 3 = -t / 4 = -R 
+// Tab : 0 = -R / 1 = -a / 2 = -r / 3 = -t / 4 = -l 
 
 int		ft_valid(char c)
 {
@@ -26,7 +26,7 @@ int		*ft_fill_tab(char *line, int *tab)
 	i = 1;
 	while (ft_valid(line[i]))
 	{
-		if (line[i] == 'l')
+		if (line[i] == 'R')
 			tab[0] = 1;
 		if (line[i] == 'a')
 			tab[1] = 1;
@@ -34,9 +34,9 @@ int		*ft_fill_tab(char *line, int *tab)
 			tab[2] = 1;
 		if (line[i] == 'R')
 			tab[3] = 1;
-		if (line[i] == 't')
+		if (line[i] == 'l')
 			tab[4] = 1;
-		if (!ft_isvalid(line[i]))
+		if (!ft_valid(line[i]))
 			tab[5] = 1;
 		i++;
 	}

@@ -65,7 +65,6 @@ int		ft_lowups(char *s1, char *s2)
 	int		i;
 
 	i = 0;
-	//printf("s1 = %s s2 = %s\n", s1, s2);
 	while (s1[i] || s2[i])
 	{
 		if (s1[i] != s2[i])

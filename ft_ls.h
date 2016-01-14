@@ -22,6 +22,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <errno.h>
 
 char	*ft_strdup(char *s1);
 char	**ft_realloc_tab(char **tab, int len);

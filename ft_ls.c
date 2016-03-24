@@ -50,14 +50,15 @@ int		main(int ac, char **av)
 {
 	(void)av;
 	int		*tab;
-	char	*file;
+	int 	treat;
 
+	treat = 0;
 	if (ac == 1)
 		ft_ls_simple();
-	else
+	else if (ac > 1)
 	{
 		tab = ft_treat_options(av, ac);
-		file = ft_check_file(av, ac);
+		treat = ft_treat_errors(tab, av, ac);
 	}
 	return (0);
 }

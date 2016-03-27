@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spochez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 13:40:49 by spochez           #+#    #+#             */
-/*   Updated: 2016/01/14 02:24:50 by spochez          ###   ########.fr       */
+/*   Created: 2014/11/06 12:07:44 by spochez           #+#    #+#             */
+/*   Updated: 2015/01/11 03:44:11 by spochez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include "ft_ls.h"
 #include <stdlib.h>
 
+char	*ft_strcat(char *s1, char *s2);
+char	*ft_strcpy(char *dst, char *src);
 int		ft_strlen(char *s);
 
-char	*ft_strdup(char *s1)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*s2;
-	size_t	i;
+	int		len1;
+	int		len2;
+	int		nlen;
+	char	*new;
 
-	i = 0;
-	s2 = NULL;
-	s2 = malloc(sizeof(char) * ft_strlen(s1) + 1);
-	while (s1[i])
+	if (s1 && s2)
 	{
-		s2[i] = s1[i];
-		i++;
+		len1 = ft_strlen(s1);
+		len2 = ft_strlen(s2);
+		nlen = len1 + len2;
+		new = malloc(sizeof(char) * nlen + 3);
+		new = ft_strcpy(new, s1);
+		new = ft_strcat(new, s2);
+		return (new);
 	}
-	s2[i] = 0;
-	return (s2);
+	return (NULL);
 }

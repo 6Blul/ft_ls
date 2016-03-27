@@ -8,6 +8,8 @@
 
 char	*ft_strdup(char *s1);
 char	*ft_itoa(int n);
+char	**ft_symblnk(char * file);
+char	*ft_gettime(struct stat buf);
 
 void	ft_fillright(char *droits)
 {
@@ -81,21 +83,26 @@ void	ft_lsl_infos(char *file)
 	char		**datas;
 
 	stat(file, &buf);
-	datas = (char **)malloc(sizeof(char *) * 7);
-	/*droits et types*/datas[0] = ft_rights(buf);
-	/*liens materiels*/datas[1] = ft_itoa((int)buf.st_nlink);
-	/*UID*/uid = getpwuid(buf.st_uid);
-	datas[2] = ft_strdup(uid->pw_name);
-	/*GID*/gid = getgrgid(buf.st_gid);
-	datas[3] = ft_strdup(gid->gr_name);
-	/*nb d'octets ecrits*/datas[4] = ft_itoa((int)buf.st_size);
-	/*derniere modif*/
-	/*nom du fichier*/datas[6] = ft_strdup(file);
-	printf("%s %s %s %s %s %s\n", datas[0], datas[1], datas[2], datas[3], datas[4], datas[6]);
+	if (S_ISLNK(buf.st_mode))
+		datas = ft_symblnk(file);
+	else
+	{
+		datas = (char **)malloc(sizeof(char *) * 7);
+		/*droits et types*/datas[0] = ft_rights(buf);
+		/*liens materiels*/datas[1] = ft_itoa((int)buf.st_nlink);
+		/*UID*/uid = getpwuid(buf.st_uid);
+		datas[2] = ft_strdup(uid->pw_name);
+		/*GID*/gid = getgrgid(buf.st_gid);
+		datas[3] = ft_strdup(gid->gr_name);
+		/*nb d'octets ecrits*/datas[4] = ft_itoa((int)buf.st_size);
+		/*derniere modif*/datas[5] = ft_gettime(buf);
+		/*nom du fichier*/datas[6] = ft_strdup(file);
+	}
+	printf("%s %s %s %s %s %s %s\n", datas[0], datas[1], datas[2], datas[3], datas[4], datas[5], datas[6]);
 }
 
 int main(int ac, char **av)
 {
-	test(av[1]);
+	ft_lsl_infos(av[1]);
 	return 0;
 }

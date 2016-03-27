@@ -1,6 +1,6 @@
 #include "ft_ls.h"
 
-char	*ft_ccswaporder(char **tab, int len)
+char	**ft_ccswaporder(char **tab, int len)
 {
 	int		i;
 	char	**c;

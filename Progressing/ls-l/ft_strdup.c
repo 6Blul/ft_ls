@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
 int		ft_strlen(char *s);
 
 char	*ft_strdup(char *s1)

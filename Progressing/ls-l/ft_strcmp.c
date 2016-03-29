@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spochez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 13:40:49 by spochez           #+#    #+#             */
-/*   Updated: 2016/01/14 02:24:50 by spochez          ###   ########.fr       */
+/*   Created: 2016/01/14 02:24:40 by spochez           #+#    #+#             */
+/*   Updated: 2016/01/14 02:24:41 by spochez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+//#include "ft_ls.h"
 
-int		ft_strlen(char *s)
+int		ft_strcmp(char *s1, char *s2)
 {
 	int		i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *s1)
-{
-	char	*s2;
-	size_t	i;
-
-	i = 0;
-	s2 = NULL;
-	s2 = malloc(sizeof(char) * ft_strlen(s1) + 1);
-	while (s1[i])
+	while (s1[i] || s2[i])
 	{
-		s2[i] = s1[i];
-		i++;
+		if (s1[i] == s2[i])
+			i++;
+		else
+			return (s1[i] - s2[i]);
 	}
-	s2[i] = 0;
-	return (s2);
+	return (0);
 }

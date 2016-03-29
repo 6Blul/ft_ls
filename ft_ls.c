@@ -12,7 +12,23 @@
 
 #include "ft_ls.h"
 
-char	**ft_get_files(char *file)
+void	ft_print(char **tab, int len)
+{
+	int		i;
+
+	i = 0;
+	while (i < len)
+	{
+		if (tab[i][0] != '.')
+		{
+			ft_putstr(tab[i]);
+			ft_putchar('\n');
+		}
+		i++;
+	}
+}
+
+void	ft_simple_ls()
 {
 	DIR				*current;
 	struct dirent	*direc;
@@ -43,13 +59,15 @@ char	**ft_get_files(char *file)
 int		main(int ac, char **av)
 {
 	int		*tab;
-	char	**files;
 	char	**file_opt;
 
+	if (ac == 1)
+		ft_simple_ls();
 	tab = ft_treat_options(av, ac);
+	file_opt = ft_files_read(ac, av)
 	if (tab[4] == 1)
-		ft_treat_lsl(tab, file_opt);
-	file_opt = ft_files_read(ac, av);
-	files = ft_get_files(".");
+		ft_treat_l(tab, file_opt);
+	else
+		ft_ls_opt(tab, file_opt);
 	return (0);
 }

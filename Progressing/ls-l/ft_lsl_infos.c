@@ -75,7 +75,7 @@ char	*ft_rights(struct stat buf)
 	return (droits);
 }
 
-void	ft_lsl_infos(char *file)
+char	**ft_lsl_infos(char *file)
 {
 	struct stat		buf;
 	struct group	*gid;
@@ -98,11 +98,5 @@ void	ft_lsl_infos(char *file)
 		/*derniere modif*/datas[5] = ft_gettime(buf);
 		/*nom du fichier*/datas[6] = ft_strdup(file);
 	}
-	printf("%s %s %s %s %s %s %s\n", datas[0], datas[1], datas[2], datas[3], datas[4], datas[5], datas[6]);
-}
-
-int main(int ac, char **av)
-{
-	ft_lsl_infos(av[1]);
-	return 0;
+	return (datas);
 }

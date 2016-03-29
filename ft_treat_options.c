@@ -33,7 +33,9 @@ int		*ft_fill_tab(char *line, int *tab)
 			tab[4] = 1;
 		else
 		{
-			printf("invalid option : \"%c\"\n", line[i]);
+			ft_putstr("invalid option : ");
+			ft_putstr(line[i]);
+			ft_putchar('\n');
 			exit(0);
 		}
 		i++;

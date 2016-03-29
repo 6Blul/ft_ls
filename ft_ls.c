@@ -12,7 +12,7 @@
 
 #include "ft_ls.h"
 
-void	ft_ls_simple()
+char	**ft_get_files(char *file)
 {
 	DIR				*current;
 	struct dirent	*direc;
@@ -27,7 +27,7 @@ void	ft_ls_simple()
 	while (direc != NULL)
 	{
 		direc = readdir(current);
-		if (direc != NULL && direc->d_name[0] != '.')
+		if (direc != NULL)
 		{
 			if (len > 0)
 				pd = ft_realloc_tab(pd, len);
@@ -36,29 +36,20 @@ void	ft_ls_simple()
 		}
 	}
 	pd = ft_order(pd, len);
-	while (i < len)
-	{
-		ft_putstr(pd[i]);
-		ft_putchar('\n');
-		i++;
-	}
-	free(pd);
 	closedir(current);
+	return (pd);
 }
 
 int		main(int ac, char **av)
 {
-	(void)av;
 	int		*tab;
-	int 	treat;
+	char	**files;
+	char	**file_opt;
 
-	treat = 0;
-	if (ac == 1)
-		ft_ls_simple();
-	else if (ac > 1)
-	{
-		tab = ft_treat_options(av, ac);
-		treat = ft_treat_errors(tab, av, ac);
-	}
+	tab = ft_treat_options(av, ac);
+	if (tab[4] == 1)
+		ft_treat_lsl(tab, file_opt);
+	file_opt = ft_files_read(ac, av);
+	files = ft_get_files(".");
 	return (0);
 }

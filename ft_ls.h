@@ -24,21 +24,40 @@
 # include <string.h>
 # include <errno.h>
 
-char	*ft_strdup(char *s1);
-char	**ft_realloc_tab(char **tab, int len);
-int		ft_strcmp(char *s1, char *s2);
+// fonctions principales
+void	ft_treat_l(int *tab, char **files);
+void	ft_treat_wtl(int *tab, char **files);
+void	ft_check_valids(char **files);
+int		*ft_ls_options(char **tab, int len);
+char	**ft_lsl_infos(char *file);
+char	**ft_files_read(int len, char **files);
+
+// fonctions secondaires
+
+char	**ft_troncate_a(char **files, int len);
 char	**ft_order(char **tab, int len);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-void	ft_ls_simple();
-void	ft_print_simple(char **tab, int len);
-void	ft_bzero(void *s, size_t n);
+char	**ft_order_time(char **list, int len);
+char	**ft_order_invtime(char **list, int len);
+char	**ft_ccswaporder(char **tab, int len);
+char	**ft_lsl_infos(char *file);
+char	**ft_symblnk(char *file);
+char	**ft_troncate_a(char **files, int len);
+char	**ft_realloc_cctab(char **tab, int len);
+char	**ft_strsplit(char *s, char c);
 void	*ft_memset(void *b, int c, size_t len);
-int		ft_strlen(char *s);
-int		ft_lowups(char *s1, char *s2);
-char	**ft_order(char **tab, int len);
+char	*ft_strdup(char *s1);
+char	*ft_itoa(int n);
+char	*ft_gettime(struct stat buf);
+char	*ft_strcat(char *s1, char *s2);
+char	*ft_strcpy(char *dst, char *src);
+char	*ft_strjoin(char *s1, char *s2);
+int		ft_strcmp(char *s1, char *s2);
 int		ft_isupper(char c);
 int		ft_islower(char c);
 int		ft_isalpha(char c);
+int		ft_lowups(char *s1, char *s2);
+void	ft_putstr(char *s);
+void	ft_putchar(char c);
+void	ft_bzero(void *s, size_t n);
 
 #endif

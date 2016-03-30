@@ -8,6 +8,8 @@
 #include <sys/types.h>
 
 char	*ft_strdup(char *s1);
+void	ft_putstr(char *s);
+void	ft_putchar(char c);
 
 char	**ft_files_read(int len, char **files)
 {
@@ -18,8 +20,11 @@ char	**ft_files_read(int len, char **files)
 
 	i = 1;
 	j = 0;
-	while (i < len && files[i][0] == '-')
-		i++;
+	if (files[i][0] == '-')
+	{
+		while (files[i][0] == '-' && files[i])
+			i++;
+	}
 	pd = (char **)malloc(sizeof(char *) * (len - i + 1));
 	while (i <= len)
 	{

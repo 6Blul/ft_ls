@@ -59,15 +59,16 @@ void	ft_simple_ls()
 int		main(int ac, char **av)
 {
 	int		*tab;
-	char	**file_opt;
+	char	**files;
 
 	if (ac == 1)
 		ft_simple_ls();
 	tab = ft_treat_options(av, ac);
-	file_opt = ft_files_read(ac, av)
+	files = ft_files_read(ac - 1, av);
+	ft_check_valids(files);
 	if (tab[4] == 1)
-		ft_treat_l(tab, file_opt);
+		ft_treat_l(tab, files);
 	else
-		ft_ls_opt(tab, file_opt);
+		ft_treat_wtl(tab, files);
 	return (0);
 }

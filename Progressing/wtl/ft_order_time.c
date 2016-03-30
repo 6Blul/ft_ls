@@ -7,9 +7,10 @@
 #include <sys/types.h>
 #include <time.h>
 //#include "ft_ls.h"
+
 char	*ft_strdup(char *s1);
 
-char	**ft_order_invtime(char **list, int len)
+char	**ft_order_time(char **list, int len)
 {
 	struct stat		buf;
 	struct stat		buf2;
@@ -25,7 +26,7 @@ char	**ft_order_invtime(char **list, int len)
 		while (j < len)
 		{
 			stat(list[j], &buf2);
-			if (buf2.st_mtime < buf.st_mtime)
+			if (buf2.st_mtime > buf.st_mtime)
 			{
 				tp = ft_strdup(list[i]);
 				list[i] = ft_strdup(list[j]);

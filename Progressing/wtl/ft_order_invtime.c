@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <time.h>
 //#include "ft_ls.h"
+
 char	*ft_strdup(char *s1);
 
 char	**ft_order_invtime(char **list, int len)

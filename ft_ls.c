@@ -28,7 +28,7 @@ void	ft_print(char **tab, int len)
 	}
 }
 
-void	ft_simple_ls()
+char	**ft_simple_ls(char *file)
 {
 	DIR				*current;
 	struct dirent	*direc;
@@ -62,7 +62,7 @@ int		main(int ac, char **av)
 	char	**files;
 
 	if (ac == 1)
-		ft_simple_ls();
+		ft_simple_ls('.');
 	tab = ft_treat_options(av, ac);
 	files = ft_files_read(ac - 1, av);
 	ft_check_valids(files);

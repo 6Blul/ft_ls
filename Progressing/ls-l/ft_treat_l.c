@@ -19,7 +19,7 @@ char	**ft_troncate_a(char **files, int len);
 void	ft_print_l(char *file)
 {
 	char	**infos;
-	int 	i;
+	int 		i;
 
 	i = 1;
 	infos = ft_lsl_infos(file);
@@ -32,15 +32,22 @@ void	ft_print_l(char *file)
 	}
 }
 
-void	ft_print_lfiles(char **files, int len)
+void	ft_print_lfiles(char **files, int len, int tab)
 {
-	int 	i;
+	int 		i;
+	struct stat	buf;
 
 	i = 0;
+	stat(file, &buf);
 	while (i < len)
 	{
-		ft_print_l(files[i]);
-		ft_putchar('\n');
+		if (S_ISDIR(buf.st_mode))
+			ft_dir_in_l(files[i], tab);
+		else
+		{
+			ft_print_l(files[i]);
+			ft_putchar('\n');
+		}
 		i++;
 	}
 }
@@ -73,7 +80,7 @@ void	ft_treat_l(int *tab, char **files)
 	}
 	if (tab[1] == 0)
 		files = ft_troncate_a(files, ft_cc_len(files));
-	ft_print_lfiles(files, ft_cc_len(files));
+	ft_print_lfiles(files, ft_cc_len(files), tab);
 }
 
 int 	main(int ac, char **av)

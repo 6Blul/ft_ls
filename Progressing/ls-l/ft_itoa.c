@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft_ls.h"
 
-void		ft_put(char *res, unsigned int i, int n)
+void		ft_put_in(char *res, unsigned int i, int n)
 {
 	if (n >= 10 || n <= -10)
 	{
@@ -20,7 +20,7 @@ void		ft_put(char *res, unsigned int i, int n)
 			res[i] = (n % 10) + '0';
 		else
 			res[i] = -(n % 10) + '0';
-		ft_put(res, i - 1, n / 10);
+		ft_put_in(res, i - 1, n / 10);
 	}
 	else
 	{
@@ -49,10 +49,10 @@ char			*ft_itoa(int n)
 	if (n < 0)
 	{
 		conv[0] = '-';
-		ft_put(&conv[1], len - 1, n);
+		ft_put_in(&conv[1], len - 1, n);
 	}
 	else
-		ft_put(conv, len - 1, n);
+		ft_put_in(conv, len - 1, n);
 	if (n < 0)
 		conv[len + 1] = 0;
 	else

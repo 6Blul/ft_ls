@@ -47,6 +47,7 @@ char	**ft_strsplit(char *s, char c);
 void	*ft_memset(void *b, int c, size_t len);
 char	*ft_strdup(char *s1);
 char	*ft_itoa(int n);
+int		ft_atoi(char *str);
 char	*ft_gettime(struct stat buf);
 char	*ft_strcat(char *s1, char *s2);
 char	*ft_strcpy(char *dst, char *src);
@@ -59,5 +60,7 @@ int		ft_lowups(char *s1, char *s2);
 void	ft_putstr(char *s);
 void	ft_putchar(char c);
 void	ft_bzero(void *s, size_t n);
+void	ft_dir_in_wl(char *s, int *tab);
+void	ft_dir_in_l(char *s, int *tab);
 
 #endif

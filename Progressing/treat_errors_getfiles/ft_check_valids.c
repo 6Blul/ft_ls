@@ -9,20 +9,9 @@
 
 char	**ft_files_read(int len, char **files);
 
-void	ft_check_valids(char **files)
+void	ft_check_valids(char *file)
 {
-	int				i;
-	struct stat		buf;
-
-	i = 0;
-	while (files[i])
-	{
-		if (stat(files[i], &buf) < 0)
-		{
-			ft_putstr("ls: impossible d'accéder a ");
-			ft_putstr(files[i]);
-			ft_putstr(": Aucun fichier ou dossier de ce type\n");
-		}
-		i++;
-	}
+	ft_putstr("ls: impossible d'accéder a ");
+	ft_putstr(files[i]);
+	ft_putstr(": Aucun fichier ou dossier de ce type\n");
 }

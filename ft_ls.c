@@ -63,12 +63,14 @@ int		main(int ac, char **av)
 
 	if (ac == 1)
 		ft_simple_ls('.');
-	tab = ft_treat_options(av, ac);
-	files = ft_files_read(ac - 1, av);
-	ft_check_valids(files);
-	if (tab[4] == 1)
-		ft_treat_l(tab, files);
 	else
-		ft_treat_wtl(tab, files);
+	{
+		tab = ft_treat_options(av, ac);
+		files = ft_files_read(ac - 1, av);
+		if (tab[4] == 1)
+			ft_treat_l(tab, files);
+		else
+			ft_treat_wtl(tab, files);
+	}
 	return (0);
 }

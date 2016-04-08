@@ -65,7 +65,7 @@ int		ft_cc_len(char **s)
 void	ft_treat_l(int *tab, char **files)
 {
 	/*ls -R*//*if (tab[0] == 1)
-		ft_treat_R(tab, files);
+		ft_treat_Rl(tab, files);
 	*/
 	if (tab[0] == 0)
 	{

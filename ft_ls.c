@@ -17,7 +17,7 @@ void	ft_print(char **tab, int len)
 	int		i;
 
 	i = 0;
-	while (i < len)
+	while (tab[i])
 	{
 		if (tab[i][0] != '.')
 		{
@@ -51,6 +51,7 @@ char	**ft_simple_ls(char *file)
 			len++;
 		}
 	}
+	pd[len] = 0;
 	pd = ft_order(pd, len);
 	closedir(current);
 	return (pd);
@@ -62,11 +63,16 @@ int		main(int ac, char **av)
 	char	**files;
 
 	if (ac == 1)
-		ft_simple_ls('.');
+	{
+		files = ft_simple_ls('.');
+		ft_print(files);
+	}
 	else
 	{
 		tab = ft_treat_options(av, ac);
 		files = ft_files_read(ac - 1, av);
+		if (tab[0] == 1)
+			ft_treat_R(tab, files);
 		if (tab[4] == 1)
 			ft_treat_l(tab, files);
 		else
